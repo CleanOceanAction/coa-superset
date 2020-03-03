@@ -1,5 +1,8 @@
 # Superset for COA
 
+[![Build Status](https://travis-ci.com/CleanOceanAction/coa-superset.svg?branch=master)](https://travis-ci.com/CleanOceanAction/coa-superset)
+
+
 The Apache Superset Configuration for COA.
 
 Most values needed come from the environment which is configured in AWS.
