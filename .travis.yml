@@ -1,13 +1,3 @@
-dist: xenial
-
-script:
-  - make build
-
-sudo: required
-
-services:
-  - docker
-
 deploy:
   provider: elasticbeanstalk
   access_key_id: $ACCESSKEYID
