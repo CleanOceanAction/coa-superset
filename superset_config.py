@@ -7,7 +7,7 @@ hostname = os.environ['DB_SERVER']
 port = os.environ['DB_PORT']
 database = os.environ['DB_DATABASE']
 
-SQLALCHEMY_DATABASE_URI = f'mysql+mysqldb://{user}:{password}@{hostname}:{port}/{database}?charset=utf8mb4'
+SQLALCHEMY_DATABASE_URI = f'mysql+mysqldb://{user}:{password}@{hostname}:{port}/{database}'
 
 PUBLIC_ROLE_LIKE_GAMMA = True
 SECRET_KEY = os.environ['SECRET_KEY']
