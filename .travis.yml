@@ -1,5 +1,3 @@
-language: python
-
 dist: xenial
 
 sudo: required
