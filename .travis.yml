@@ -1,0 +1,21 @@
+dist: xenial
+
+script:
+  - make build
+
+sudo: required
+
+services:
+  - docker
+
+deploy:
+  provider: elasticbeanstalk
+  access_key_id: $ACCESSKEYID
+  secret_access_key:
+    secure: $SECRETACCESSKEY
+  region: "us-east-1"
+  app: "coa_superset"
+  env: "coa-superset-prod"
+  bucket_name: "elasticbeanstalk-us-east-1-495512916465"
+  on:
+    branch: master
