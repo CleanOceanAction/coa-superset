@@ -1,7 +1,7 @@
 FROM python:3.6
 
 # Configure environment
-ENV GUNICORN_BIND=0.0.0.0:80 \
+ENV GUNICORN_BIND=0.0.0.0:8088 \
     GUNICORN_LIMIT_REQUEST_FIELD_SIZE=0 \
     GUNICORN_LIMIT_REQUEST_LINE=0 \
     GUNICORN_TIMEOUT=60 \
@@ -46,7 +46,7 @@ COPY superset_config.py /home/superset
 WORKDIR /home/superset
 USER superset
 
-EXPOSE 80
-HEALTHCHECK CMD ["curl", "-f", "http://localhost:80/health"]
+EXPOSE 8088
+HEALTHCHECK CMD ["curl", "-f", "http://localhost:8088/health"]
 
 CMD ["gunicorn", "superset:app"]
