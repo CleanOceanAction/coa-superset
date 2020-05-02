@@ -49,4 +49,4 @@ USER superset
 EXPOSE 8088
 HEALTHCHECK CMD ["curl", "-f", "http://localhost:8088/health"]
 
-CMD ["gunicorn", "superset:app"]
+CMD ["gunicorn", "superset.app:create_app()"]
