@@ -13,7 +13,17 @@ build:
 
 .PHONY: run
 run:
-	docker run --rm -e DB_USERNAME -e SECRET_KEY -e DB_PASSWORD -e DB_SERVER -e DB_DATABASE -e DB_PORT -p 8088:8088 --name coa-superset coa-superset
+	docker run --rm \
+		-e DB_USERNAME \
+		-e DB_PASSWORD \
+		-e DB_SERVER \
+		-e DB_PORT \
+		-e DB_DATABASE \
+		-e SECRET_KEY \
+		-e MAPBOX_API_KEY \
+		-p 8088:8088 \
+		--name coa-superset \
+		coa-superset
 
 .PHONY: init-db
 init-db:
