@@ -11,3 +11,5 @@ SQLALCHEMY_DATABASE_URI = f'mysql+mysqldb://{user}:{password}@{hostname}:{port}/
 
 PUBLIC_ROLE_LIKE_GAMMA = True
 SECRET_KEY = os.environ['SECRET_KEY']
+
+MAPBOX_API_KEY = os.environ['MAPBOX_API_KEY']
