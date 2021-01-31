@@ -1,4 +1,4 @@
-FROM python:3.6
+FROM python:3.8
 
 # Configure environment
 ENV GUNICORN_BIND=0.0.0.0:8088 \
@@ -11,7 +11,7 @@ ENV GUNICORN_BIND=0.0.0.0:8088 \
     LC_ALL=C.UTF-8 \
     PYTHONPATH=/etc/superset:/home/superset:$PYTHONPATH \
     SUPERSET_REPO=apache/incubator-superset \
-    SUPERSET_VERSION=0.35.2 \
+    SUPERSET_VERSION=1.0.0 \
     SUPERSET_HOME=/var/lib/superset
 ENV GUNICORN_CMD_ARGS="--workers ${GUNICORN_WORKERS} --threads ${GUNICORN_THREADS} --timeout ${GUNICORN_TIMEOUT} --bind ${GUNICORN_BIND} --limit-request-line ${GUNICORN_LIMIT_REQUEST_LINE} --limit-request-field_size ${GUNICORN_LIMIT_REQUEST_FIELD_SIZE}"
 

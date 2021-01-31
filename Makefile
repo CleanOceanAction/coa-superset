@@ -1,3 +1,5 @@
+TAG = coa-superset
+
 .PHONY: help
 help:
 	@echo "Usage:"
@@ -5,14 +7,15 @@ help:
 	@echo "    build:   Build superset"
 	@echo "    run:     Run superset"
 	@echo "    init-db: Initalize the database"
+	@echo "    clean:   Cleans up the leftover image"
 	@echo ""
 
 .PHONY: build
 build:
-	docker build -t coa-superset .
+	docker build -t $(TAG) .
 
 .PHONY: run
-run:
+run: build
 	docker run --rm \
 		-e DB_USERNAME \
 		-e DB_PASSWORD \
@@ -22,9 +25,13 @@ run:
 		-e SECRET_KEY \
 		-e MAPBOX_API_KEY \
 		-p 8088:8088 \
-		--name coa-superset \
-		coa-superset
+		--name $(TAG) \
+		$(TAG)
 
 .PHONY: init-db
 init-db:
-	docker exec -it coa-superset superset-init
+	docker exec -it $(TAG) superset-init.sh
+
+.PHONY: clean
+clean:
+	docker rmi $(TAG)
