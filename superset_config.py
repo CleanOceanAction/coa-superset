@@ -4,7 +4,8 @@ Config for Apache Superset.
 
 import os
 
-from celery.schedules import crontab
+# Commenting out caching as this possibly leads to polling of the DB
+# from celery.schedules import crontab
 
 
 user = os.environ["DB_USERNAME"]
@@ -22,7 +23,6 @@ PUBLIC_ROLE_LIKE = "Gamma"
 
 MAPBOX_API_KEY = os.getenv("MAPBOX_API_KEY", "")
 
-# Commenting out caching as this possibly leads to polling of the DB
 """
 # Caching setup
 CACHE_CONFIG = {
